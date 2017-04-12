@@ -1,0 +1,53 @@
+
+<head>
+<script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+<script src="https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.js"></script>
+<script>THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'</script>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+	<a-scene embedded artoolkit='sourceType: webcam;'>
+		
+		  <a-assets>
+
+		    <img id="my-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/NYC_-_Washington_Square_Park.JPG/250px-NYC_-_Washington_Square_Park.JPG">
+
+		    <audio src="../audio/test.mp3" id="test" preload="auto"></audio>
+
+		  </a-assets>
+
+		 <!-- <a-entity sound="src: #test"></a-entity> -->
+
+		<a-marker type='barcode' value='20'>
+
+			<!-- <a-plane src="#my-image" height="5" width="5" rotation="-90 -90 -90" position="2 0 2"></a-plane> -->
+			
+			<a-plane src="#my-image" height="5" width="5" rotation="-90 -90 -90" position="2 0 2" sound="src: url(/audio/test.mp3); on: ????"></a-plane>
+
+			<!-- <a-entity sound="src: #test"></a-entity> -->
+
+			<!-- <a-sound src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay="true" position="2 0 2"></a-sound> -->
+
+		</a-marker>
+
+		<a-entity camera></a-entity>
+		<!-- <a-marker-camera preset='kanji'></a-marker-camera> -->
+	</a-scene>
+
+
+
+	<script type="text/javascript">
+	
+		console.log("loaded assets:   " + document.querySelector('a-assets').fileLoader);
+
+		// var audiotrigger = document.querySelector('a-plane');
+		// var entity = document.querySelector('[sound]');
+
+		// audiotrigger.addEventListener('onload', function () {
+		// 	entity.components.sound.playSound();
+		  
+		// });
+
+
+	</script>
+
+</body>
